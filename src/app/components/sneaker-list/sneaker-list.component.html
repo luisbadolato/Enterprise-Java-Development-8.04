@@ -1,0 +1,11 @@
+
+<div class="list-container">
+    <ul>
+        <li *ngFor="let item of newList">
+            <h4>Name: {{item.name}}</h4>
+            <h4>{{item.price}}€</h4>
+            <h4 *ngIf="item.specialEdition">Designed By: {{item.artistCollab}}</h4>
+            <h4>Design Author: {{item.author}}</h4>
+        </li>
+    </ul>
+</div>

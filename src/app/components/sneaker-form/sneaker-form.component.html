@@ -1,0 +1,47 @@
+<form [formGroup]="sneakerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name">
+        <mat-error *ngIf="name.invalid && name.touched">
+            Please, insert a valid name
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input type="number" matInput formControlName="price">
+        <mat-error *ngIf="price.invalid && price.touched">
+            Price must be between 20€ and 180€
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose Edition</mat-label>
+        <mat-select formControlName="specialEdition" name="specialEdition">
+          <mat-option value=true>Special Edition (with artist collaboration)</mat-option>
+          <mat-option value=false>Basic Edition</mat-option>
+        </mat-select>
+        <mat-error *ngIf="specialEdition.invalid && specialEdition.touched">
+            Please, select an edition
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Artist Collaborator (Only for Special Editions)</mat-label>
+        <input type="text" matInput formControlName="artistCollab">
+        <mat-error *ngIf="artistCollab.invalid && artistCollab.touched">
+            Please, insert collaborator's name
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input type="text" matInput formControlName="author">
+        <mat-error *ngIf="author.invalid && author.touched">
+            Please, insert a valid author's name
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="creationDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" [disabled]="sneakerForm.invalid">Submit</button>
+</form>

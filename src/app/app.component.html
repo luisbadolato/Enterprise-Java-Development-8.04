@@ -1,0 +1,8 @@
+<!-- <router-outlet></router-outlet> -->
+<div class="app-container">
+  <h1 class="title">Sneaker Creation</h1>
+  <main>
+    <app-sneaker-form class="form-component" (updateListEvent)="receiveList($event)"></app-sneaker-form>
+    <app-sneaker-list class="list-component" [sneakerList]="sneakerList"></app-sneaker-list>
+  </main>
+</div>
